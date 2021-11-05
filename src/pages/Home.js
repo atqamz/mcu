@@ -31,7 +31,7 @@ export default function Home(props) {
         />
       </div>
 
-      <div className='row container-fluid p-5'>
+      <div id='wishlist' className='row container-fluid p-5'>
         <h1>Wishlist</h1>
         {data.results
           .filter((movie) => {
@@ -58,7 +58,7 @@ export default function Home(props) {
           })}
       </div>
 
-      <div className='row container-fluid p-5'>
+      <div id='movies' className='row container-fluid p-5'>
         <h1>Movie List</h1>
         {data.results
           .filter((movie) => {

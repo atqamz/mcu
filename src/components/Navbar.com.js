@@ -15,8 +15,8 @@ export default function Navbar(props) {
         <C.Navbar.Toggle aria-controls='responsive-nav' />
         <C.Navbar.Collapse id='responsive-nav'>
           <C.Nav className='me-auto'>
-            <C.Nav.Link href='/'>Movies</C.Nav.Link>
-            <C.Nav.Link href='/wishlist'>Wishlist</C.Nav.Link>
+            <C.Nav.Link href='#movies'>Movies</C.Nav.Link>
+            <C.Nav.Link href='#wishlist'>Wishlist</C.Nav.Link>
           </C.Nav>
 
           <div class='d-flex'>
