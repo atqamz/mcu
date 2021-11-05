@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+
+// Component
+import Navbar from "./components/Navbar.com";
+import Footer from "./components/Footer.com";
+
+// Pages
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar
+        onChange={(event) => {
+          setSearchTerm(event.target.value);
+        }}
+      />
+      <BrowserRouter>
+        <Route exact path='/'>
+          <Home search={searchTerm} />
+        </Route>
+        <Route path='/movie/:id'>
+          <Detail />
+        </Route>
+      </BrowserRouter>
+      <Footer />
+    </>
   );
 }
 
