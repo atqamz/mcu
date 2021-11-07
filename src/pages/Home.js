@@ -1,20 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as MatIco from "@material-ui/icons";
-import data from "../dummyData";
+import data from "../dummyData.json";
 
 export default function Home(props) {
   let searchTerm = props.search;
 
   const [wishlist, setWishlist] = useState([]);
 
+  useEffect(() => {
+    if (localStorage.getItem("wishlist")) {
+      setWishlist(JSON.parse(localStorage.getItem("wishlist")));
+    }
+  }, []);
+
   function handleClick(id) {
-    setWishlist([...wishlist, { movieId: id }]);
+    localStorage.setItem("wishlist", JSON.stringify([...wishlist, { movieId: id }]));
+    setWishlist(JSON.parse(localStorage.getItem("wishlist")));
     console.log(wishlist);
   }
 
   function handleDelete(id) {
-    setWishlist(wishlist.filter((data) => data.movieId !== id));
-    console.log(wishlist);
+    setWishlist(
+      localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist.filter((data) => data.movieId !== id))
+      )
+    );
+    window.location = "/";
   }
 
   return (

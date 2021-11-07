@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import data from "../dummyData";
+import data from "../dummyData.json";
 
 export default function Detail() {
   const { id } = useParams();
@@ -22,7 +22,7 @@ export default function Detail() {
               <div className='container-fluid p-5 row'>
                 <div className='col-md-9'>
                   <h1>{movie.title}</h1>
-                  <p>Popularity: {movie.popularity}</p>
+                  <p>Rating: {movie.vote_average}/10</p>
                   <p>{movie.overview}</p>
                 </div>
                 <div className='col-md-3'>

@@ -5,7 +5,7 @@ export default function Navbar(props) {
   return (
     <div className='head sticky-top'>
       <C.Navbar className='mx-5' collapseOnSelect expand='md' variant='dark'>
-        <C.Navbar.Brand>
+        <C.Navbar.Brand href='/'>
           <C.Image
             src='https://upload.wikimedia.org/wikipedia/commons/b/b9/Marvel_Logo.svg'
             alt='Marvel'
